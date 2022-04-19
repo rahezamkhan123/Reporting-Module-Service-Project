@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+	<Appenders>
+		<Console name="LogToConsole" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+		<File name="LogToFile" fileName="logs/app.log"
+			filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %c [%t] %m%n</Pattern>
+				<Policies>
+					<SizeBasedTriggeringPolicy>
+						<size>1MB</size>
+					</SizeBasedTriggeringPolicy>
+					<DefaultRollOverStrategy>
+						<max>10</max>
+					</DefaultRollOverStrategy>
+				</Policies>
+			</PatternLayout>
+		</File>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.alzohar.service" level="debug"
+			additivity="false">
+			<AppenderRef ref="LogToFile" />
+			<AppenderRef ref="LogToConsole" />
+		</Logger>
+		<Logger name="org.springframework.boot" level="error"
+			additivity="false">
+			f
+			<AppenderRef ref="LogToConsole" />
+		</Logger>
+		<Root level="error">
+			<AppenderRef ref="LogToFile" />
+			<AppenderRef ref="LogToConsole" />
+		</Root>
+	</Loggers>
+</Configuration>
