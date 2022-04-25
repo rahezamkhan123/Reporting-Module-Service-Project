@@ -1,9 +1,6 @@
-package com.alzohar.products.exporter;
+package com.alzohar.service.exporter;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletOutputStream;
@@ -11,61 +8,50 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.alzohar.products.entity.Product;
+import com.alzohar.service.entity.User;
 
-public class ProductExcelExporter {
+public class UserExcelExporter {
 
 	private XSSFWorkbook workbook;
 	private XSSFSheet sheet;
-	private List<Product> listProducts;
+	private List<User> listUsers;
 
-	public ProductExcelExporter(List<Product> listProduct) {
-		this.listProducts = listProduct;
+	public UserExcelExporter(List<User> listUser) {
+		this.listUsers = listUser;
 		workbook = new XSSFWorkbook();
 	}
 
 	private void writeHeaderLine() {
-		sheet = workbook.createSheet("Products");
+		sheet = workbook.createSheet("Users");
 
 		Row row = sheet.createRow(0);
 
 		CellStyle style = workbook.createCellStyle();
 		XSSFFont font = workbook.createFont();
 		font.setBold(true);
-		font.setFontHeight(16);
+		font.setFontHeight(14);
 		style.setFont(font);
 
-		createCell(row, 0, "product_id", style);
-		createCell(row, 1, "name", style);
-		createCell(row, 2, "price", style);
-		createCell(row, 3, "desc", style);
-		createCell(row, 4, "brand", style);
-		createCell(row, 5, "enabled", style);
-		createCell(row, 6, "created_At", style);
+		createCell(row, 0, "user_id", style);
+		createCell(row, 1, "username", style);
+		createCell(row, 2, "password", style);
+		createCell(row, 3, "enabled", style);
 	}
 
 	private void createCell(Row row, int columnCount, Object value, CellStyle style) {
 		sheet.autoSizeColumn(columnCount);
 		Cell cell = row.createCell(columnCount);
-		String pattern = "yyyy-MM-dd";
-		SimpleDateFormat dateFormatter = new SimpleDateFormat(pattern);
-		String date = dateFormatter.format(new Date());
-
 		if (value instanceof Long) {
 			cell.setCellValue((Long) value);
 		} else if (value instanceof String) {
 			cell.setCellValue((String) value);
-		} else if (value instanceof Double) {
-			cell.setCellValue((double) value);
-		} else if (value instanceof Date) {
-			cell.setCellValue(date);
+		} else if (value instanceof Boolean) {
+			cell.setCellValue((Boolean) value);
 		}
 		cell.setCellStyle(style);
 	}
@@ -75,20 +61,17 @@ public class ProductExcelExporter {
 
 		CellStyle style = workbook.createCellStyle();
 		XSSFFont font = workbook.createFont();
-		font.setFontHeight(14);
+		font.setFontHeight(12);
 		style.setFont(font);
 
-		for (Product prod : listProducts) {
+		for (User user : listUsers) {
 			Row row = sheet.createRow(rowCount++);
 			int columnCount = 0;
 
-			createCell(row, columnCount++, prod.getId(), style);
-			createCell(row, columnCount++, prod.getName(), style);
-			createCell(row, columnCount++, prod.getPrice(), style);
-			createCell(row, columnCount++, prod.getDesc(), style);
-			createCell(row, columnCount++, prod.getBrand(), style);
-			createCell(row, columnCount++, prod.getEnabled(), style);
-			createCell(row, columnCount, prod.getCreatedAt(), style);
+			createCell(row, columnCount++, user.getId(), style);
+			createCell(row, columnCount++, user.getUsername(), style);
+			createCell(row, columnCount++, user.getPassword(), style);
+			createCell(row, columnCount++, user.isEnabled(), style);
 		}
 	}
 

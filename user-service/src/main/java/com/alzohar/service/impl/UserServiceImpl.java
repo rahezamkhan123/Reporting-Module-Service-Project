@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 		User fetchedUser = repository.getUserByUsername(user.getUsername());
 		if (fetchedUser != null) {
 			LOGGER.error("User already exists for this username :: " + user.getUsername());
-			throw new UserAlreadyExistException("User already exists for this email");
+			throw new UserAlreadyExistException("User already exists for this username");
 		}
 		encodePassword(user);
 		LOGGER.info(user.getUsername() + " user is registred successfuly. ");

@@ -1,4 +1,4 @@
-package com.alzohar.products.exporter;
+package com.alzohar.service.exporter;
 
 import java.io.IOException;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 import javax.servlet.http.HttpServletResponse;
 
-import com.alzohar.products.entity.Product;
+import com.alzohar.service.entity.User;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -20,17 +20,17 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
-public class ProductPDFExporter {
+public class UserPdfExporter {
 
-	private List<Product> listProducts;
+	private List<User> listUsers;
 
-	public ProductPDFExporter(List<Product> listProducts) {
+	public UserPdfExporter(List<User> listUsers) {
 		super();
-		this.listProducts = listProducts;
+		this.listUsers = listUsers;
 	}
 
 	private void writeTableHeader(PdfPTable table) {
-		Stream.of("Id", "Name", "Price", "Brand", "Description", "Enabled", "CreatedAt").forEach(headerTitle -> {
+		Stream.of("Id", "Username", "Password", "Enabled").forEach(headerTitle -> {
 			PdfPCell header = new PdfPCell();
 			Font headFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
 			header.setBackgroundColor(BaseColor.LIGHT_GRAY);
@@ -39,17 +39,15 @@ public class ProductPDFExporter {
 			header.setPhrase(new Phrase(headerTitle, headFont));
 			table.addCell(header);
 		});
+
 	}
 
 	private void writeTableData(PdfPTable table) {
-		for (Product product : listProducts) {
-			table.addCell(String.valueOf(product.getId()));
-			table.addCell(product.getName());
-			table.addCell(String.valueOf(product.getPrice()));
-			table.addCell(product.getBrand());
-			table.addCell(product.getDesc());
-			table.addCell(product.getEnabled());
-			table.addCell(String.valueOf(product.getCreatedAt()));
+		for (User user : listUsers) {
+			table.addCell(String.valueOf(user.getId()));
+			table.addCell(user.getUsername());
+			table.addCell(user.getPassword());
+			table.addCell(String.valueOf(user.isEnabled()));
 		}
 	}
 
@@ -59,19 +57,19 @@ public class ProductPDFExporter {
 
 		document.open();
 
-		Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLDOBLIQUE);
+		Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
 		font.setSize(12);
 		font.setColor(BaseColor.DARK_GRAY);
 
-		Paragraph p = new Paragraph("LIST OF PRODUCTS", font);
+		Paragraph p = new Paragraph("LIST OF USERS", font);
 		p.setAlignment(Paragraph.ALIGN_CENTER);
 
 		document.add(p);
 
-		PdfPTable table = new PdfPTable(7);
+		PdfPTable table = new PdfPTable(4);
 		table.setWidthPercentage(100f);
-		table.setWidths(new float[] { 1.5f, 3.5f, 3.0f, 3.0f, 3.5f, 2.5f, 3.5f });
-		table.setSpacingBefore(8);
+		table.setWidths(new float[] { 1.5f, 3.5f, 3.0f, 3.0f });
+		table.setSpacingBefore(6);
 
 		writeTableHeader(table);
 		writeTableData(table);

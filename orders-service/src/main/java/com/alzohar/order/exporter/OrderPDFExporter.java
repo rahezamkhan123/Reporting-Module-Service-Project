@@ -1,16 +1,14 @@
 package com.alzohar.order.exporter;
 
-import java.awt.Color;
-
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Stream;
 
 import javax.servlet.http.HttpServletResponse;
 
 import com.alzohar.order.entity.Order;
-import com.lowagie.text.*;
-import com.lowagie.text.pdf.PdfPCell;
-import com.lowagie.text.pdf.*;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
 
 public class OrderPDFExporter {
 
@@ -22,30 +20,16 @@ public class OrderPDFExporter {
 	}
 
 	private void writeTableHeader(PdfPTable table) {
-		PdfPCell cell = new PdfPCell();
-		cell.setBackgroundColor(Color.DARK_GRAY);
-		cell.setPadding(5);
+		Stream.of("Id", "Name", "Price", "Quantity", "Total", "orderDate").forEach(headerTitle -> {
+			PdfPCell header = new PdfPCell();
+			Font headFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
+			header.setBackgroundColor(BaseColor.LIGHT_GRAY);
+			header.setHorizontalAlignment(Element.ALIGN_CENTER);
+			header.setBorderWidth(2);
+			header.setPhrase(new Phrase(headerTitle, headFont));
+			table.addCell(header);
+		});
 
-		Font font = FontFactory.getFont(FontFactory.HELVETICA);
-		font.setColor(Color.WHITE);
-
-		cell.setPhrase(new Phrase("Id", font));
-		table.addCell(cell);
-
-		cell.setPhrase(new Phrase("Name", font));
-		table.addCell(cell);
-
-		cell.setPhrase(new Phrase("Price", font));
-		table.addCell(cell);
-
-		cell.setPhrase(new Phrase("Quantity", font));
-		table.addCell(cell);
-
-		cell.setPhrase(new Phrase("Total", font));
-		table.addCell(cell);
-
-		cell.setPhrase(new Phrase("orderDate", font));
-		table.addCell(cell);
 	}
 
 	private void writeTableData(PdfPTable table) {
@@ -53,7 +37,7 @@ public class OrderPDFExporter {
 			table.addCell(String.valueOf(order.getId()));
 			table.addCell(order.getName());
 			table.addCell(String.valueOf(order.getPrice()));
-			table.addCell(Integer.toString(order.getQuantity()));
+			table.addCell(String.valueOf(order.getQuantity()));
 			table.addCell(String.valueOf(order.getTotal()));
 			table.addCell(String.valueOf(order.getOrderDate()));
 		}
@@ -65,19 +49,18 @@ public class OrderPDFExporter {
 
 		document.open();
 
-		Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
-		font.setSize(18);
-		font.setColor(Color.BLUE);
-
-		Paragraph p = new Paragraph("List of Products", font);
+		Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLDOBLIQUE);
+		font.setSize(12);
+		font.setColor(BaseColor.DARK_GRAY);
+		Paragraph p = new Paragraph("LIST OF ORDERS", font);
 		p.setAlignment(Paragraph.ALIGN_CENTER);
 
 		document.add(p);
 
-		PdfPTable table = new PdfPTable(5);
+		PdfPTable table = new PdfPTable(6);
 		table.setWidthPercentage(100f);
-		table.setWidths(new float[] { 1.5f, 3.5f, 3.0f, 3.0f, 1.5f });
-		table.setSpacingBefore(10);
+		table.setWidths(new float[] { 1.5f, 2.5f, 2.5f, 1.5f, 2.0f, 3.0f });
+		table.setSpacingBefore(8);
 
 		writeTableHeader(table);
 		writeTableData(table);

@@ -19,6 +19,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Entity
@@ -44,6 +46,7 @@ public class Order {
 	private double total;
 
 	@CreationTimestamp
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "order_date")
 	private Date orderDate;
 

@@ -1,7 +1,9 @@
 package com.alzohar.order.exporter;
 
 import java.io.IOException;
-
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletOutputStream;
@@ -49,11 +51,24 @@ public class OrderExcelExporter {
 
 	private void createCell(Row row, int columnCount, Object value, CellStyle style) {
 		sheet.autoSizeColumn(columnCount);
+
+		String pattern = "dd-MM-yyyy";
+		SimpleDateFormat dateFormatter = new SimpleDateFormat(pattern);
+		String date = dateFormatter.format(new Date());
+
 		Cell cell = row.createCell(columnCount);
 		if (value instanceof Long) {
 			cell.setCellValue((Long) value);
 		} else if (value instanceof String) {
 			cell.setCellValue((String) value);
+		} else if (value instanceof Double) {
+			cell.setCellValue((double) value);
+		} else if (value instanceof Integer) {
+			cell.setCellValue((Integer) value);
+		} else if (value instanceof Double) {
+			cell.setCellValue((double) value);
+		} else if (value instanceof Date) {
+			cell.setCellValue(date);
 		}
 		cell.setCellStyle(style);
 	}

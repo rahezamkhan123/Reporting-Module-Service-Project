@@ -1,8 +1,15 @@
 package com.alzohar.service.controller;
 
+import java.io.IOException;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,11 +21,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.supercsv.io.CsvBeanWriter;
+import org.supercsv.io.ICsvBeanWriter;
+import org.supercsv.prefs.CsvPreference;
 import com.alzohar.service.entity.User;
 import com.alzohar.service.entity.UserService;
+import com.alzohar.service.exporter.UserExcelExporter;
+import com.alzohar.service.exporter.UserPdfExporter;
 import com.alzohar.service.repository.UserRepository;
+import com.alzohar.service.setup.ExportService;
+import com.alzohar.service.setup.SetUserService;
+import com.lowagie.text.DocumentException;
 
 @RestController
 public class UserController {
@@ -30,6 +45,12 @@ public class UserController {
 
 	@Autowired
 	UserService useService;
+
+	@Autowired
+	SetUserService service;
+
+	@Autowired
+	ExportService exportService;
 
 	@GetMapping("/users/{id}")
 	public Optional<User> getUserById(@PathVariable("id") long id) {
@@ -55,20 +76,21 @@ public class UserController {
 		return list;
 	}
 
+	@GetMapping("/export")
+	public void export(HttpServletResponse response, @RequestParam("export") String export) {
+		if (export.equalsIgnoreCase("excel")) {
+			exportService.exportToExcel(response);
+		} else if (export.equalsIgnoreCase("csv")) {
+			exportService.exportToCSV(response);
+		} else if (export.equalsIgnoreCase("pdf")) {
+			exportService.exportToPDF(response);
+		}
+	}
+
 	@PostMapping("/users")
 	public User addUser(@RequestBody User user) {
 		return userRepo.save(user);
 	}
-
-//	@PostMapping("/register")
-////	@PreAuthorize("permitAll()")
-//	public ResponseEntity<?> registerUser(@RequestBody User user) {
-//		User userCreated = useService.register(user);
-//		if (userCreated != null) {
-//			return ResponseEntity.ok(userCreated);
-//		}
-//		throw new UsernameNotFoundException("User Registration failed !");
-//	}
 
 	@PutMapping("/users")
 	public User updateUser(@RequestBody User user) {

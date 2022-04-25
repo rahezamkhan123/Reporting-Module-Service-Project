@@ -11,12 +11,16 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.supercsv.io.CsvBeanWriter;
@@ -29,8 +33,9 @@ import com.alzohar.products.exception.ProductNotFound;
 import com.alzohar.products.exporter.ProductExcelExporter;
 import com.alzohar.products.exporter.ProductPDFExporter;
 import com.alzohar.products.repository.ProductRepository;
+import com.alzohar.products.service.ExportService;
 import com.alzohar.products.service.ProductService;
-import com.lowagie.text.DocumentException;
+import com.itextpdf.text.DocumentException;
 
 @RestController
 public class ProductController {
@@ -40,6 +45,9 @@ public class ProductController {
 
 	@Autowired
 	ProductService proService;
+
+	@Autowired
+	ExportService expService;
 
 	@GetMapping("/product/{id}")
 	public Optional<Product> getOneProduct(@PathVariable(value = "id") long id) {
@@ -64,67 +72,15 @@ public class ProductController {
 		return products;
 	}
 
-//	getmapping for excel file download
-	@GetMapping("/products/exp/excel")
-	public void exportToExcel(HttpServletResponse response) throws IOException {
-		response.setContentType("application/vnd.ms-excel");
-		DateFormat dateFormatter = new SimpleDateFormat("dd-mm-yyyy_HH:mm:ss");
-		String currentDateTime = dateFormatter.format(new Date());
-
-		String headerKey = "Content-Disposition";
-		String headerValue = "attachment; filename=products.xlsx";
-		response.setHeader(headerKey, headerValue);
-
-		List<Product> listProduct = proService.listAll();
-		ProductExcelExporter excelExporter = new ProductExcelExporter(listProduct);
-		excelExporter.export(response);
-	}
-
-//	Get Mapping for CSV file download
-	@GetMapping("products/exp/csv")
-	public void exportToCSV(HttpServletResponse response) throws IOException {
-		response.setContentType("text/csv");
-		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-		String currentDateTime = dateFormatter.format(new Date());
-
-		String headerKey = "Content-Disposition";
-		String headerValue = "attachment; filename=products_" + currentDateTime + ".csv";
-		response.setHeader(headerKey, headerValue);
-
-		List<Product> listProduct = proService.listAll();
-
-		ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
-		String[] csvHeader = { "Product_Id", "Product_Name", "Product_Price", "Product_Brand", "Product_Description",
-				"Product_Enabled", "Product_Created_At" };
-		String[] nameMapping = { "id", "name", "price", "brand", "desc", "enabled", "createdAt" };
-
-		csvWriter.writeHeader(csvHeader);
-
-		for (Product product : listProduct) {
-			csvWriter.write(product, nameMapping);
+	@GetMapping("/export")
+	public void export(HttpServletResponse response, @RequestParam("export") String export) {
+		if (export.equalsIgnoreCase("excel")) {
+			expService.exportToExcel(response);
+		} else if (export.equalsIgnoreCase("csv")) {
+			expService.exportToCSV(response);
+		} else if (export.equalsIgnoreCase("pdf")) {
+			expService.exportToPDF(response);
 		}
-
-		csvWriter.close();
-	}
-
-//	Get Mapping for PDF file download
-
-	@GetMapping("/products/exp/pdf")
-	public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException {
-		response.setContentType("application/pdf");
-		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-		String currentDateTime = dateFormatter.format(new Date());
-
-		Date date = new Date();
-
-		String headerKey = "Content-Disposition";
-		String headerValue = "inline; filename=products" + currentDateTime + ".pdf";
-		response.setHeader("Content-Disposition", "attachment ;filename=products.pdf");
-
-		List<Product> listProduct = proService.listAll();
-
-		ProductPDFExporter exporter = new ProductPDFExporter(listProduct);
-		exporter.export(response);
 	}
 
 	@PostMapping("/products")

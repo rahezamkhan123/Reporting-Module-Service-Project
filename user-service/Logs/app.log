@@ -3734,3 +3734,579 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[?:?]
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[?:?]
 	at java.lang.Thread.run(Thread.java:831) ~[?:?]
+2022-04-19 23:58:26,572 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 4644 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-19 23:58:26,605 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-19 23:58:26,606 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-19 23:58:32,287 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-19 23:58:34,011 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 7.97 seconds (JVM running for 10.169)
+2022-04-20 03:43:51,541 ERROR com.netflix.discovery.DiscoveryClient [RMI TCP Connection(2)-127.0.0.1] DiscoveryClient_USER-SERVICE/DESKTOP-R5PK4T9:user-service:7002 - de-registration failedCannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:972) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:948) ~[eureka-client-1.10.17.jar:1.10.17]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:347) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:177) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:197) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:190) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:390) ~[spring-cloud-context-3.1.1.jar:3.1.1]
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136) ~[spring-cloud-context-3.1.1.jar:3.1.1]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:213) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1161) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1154) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1106) ~[spring-context-5.3.18.jar:5.3.18]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1075) ~[spring-context-5.3.18.jar:5.3.18]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:172) ~[spring-boot-2.6.6.jar:2.6.6]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1021) ~[spring-context-5.3.18.jar:5.3.18]
+	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown(SpringApplicationAdminMXBeanRegistrar.java:160) ~[spring-boot-2.6.6.jar:2.6.6]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:260) ~[?:?]
+	at com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:193) ~[?:?]
+	at com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:175) ~[?:?]
+	at com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:117) ~[?:?]
+	at com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:54) ~[?:?]
+	at com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(MBeanIntrospector.java:237) ~[?:?]
+	at com.sun.jmx.mbeanserver.PerInterface.invoke(PerInterface.java:138) ~[?:?]
+	at com.sun.jmx.mbeanserver.MBeanSupport.invoke(MBeanSupport.java:252) ~[?:?]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809) ~[?:?]
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801) ~[?:?]
+	at javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466) ~[?:?]
+	at javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307) ~[?:?]
+	at javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1399) ~[?:?]
+	at javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:357) ~[?:?]
+	at sun.rmi.transport.Transport$1.run(Transport.java:200) ~[?:?]
+	at sun.rmi.transport.Transport$1.run(Transport.java:197) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:691) ~[?:?]
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:196) ~[?:?]
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:587) ~[?:?]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:828) ~[?:?]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:705) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) ~[?:?]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:704) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[?:?]
+	at java.lang.Thread.run(Thread.java:831) ~[?:?]
+2022-04-20 19:21:12,302 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 4908 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-20 19:21:12,356 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-20 19:21:12,357 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-20 19:21:24,004 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-20 19:21:28,219 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 19.549 seconds (JVM running for 24.598)
+2022-04-20 20:11:53,608 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-5] nawa user is registred successfuly. 
+2022-04-21 00:23:09,659 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 00:23:09,690 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 00:23:09,691 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 00:23:16,582 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 00:23:19,108 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 10.092 seconds (JVM running for 11.662)
+2022-04-21 00:30:28,858 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 00:30:28,859 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 00:30:28,859 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 00:30:31,005 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 00:30:31,667 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.918 seconds (JVM running for 444.221)
+2022-04-21 00:30:36,157 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 00:30:36,157 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 00:30:36,158 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 00:30:37,668 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 00:30:38,224 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.171 seconds (JVM running for 450.778)
+2022-04-21 00:32:48,910 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 00:32:48,910 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 00:32:48,911 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 00:32:50,785 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 00:32:51,386 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.576 seconds (JVM running for 583.94)
+2022-04-21 00:33:40,433 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 00:33:40,434 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 00:33:40,434 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 00:33:43,257 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 00:33:43,794 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 3.475 seconds (JVM running for 636.348)
+2022-04-21 00:33:48,293 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 00:33:48,293 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 00:33:48,294 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 00:33:49,678 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 00:33:50,218 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.016 seconds (JVM running for 642.772)
+2022-04-21 00:35:07,198 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-7] asfar user is registred successfuly. 
+2022-04-21 01:09:28,380 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 01:09:28,381 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 01:09:28,382 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 01:09:30,191 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 01:09:30,735 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.462 seconds (JVM running for 2783.289)
+2022-04-21 01:09:52,085 ERROR com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-6] User already exists for this username :: asfar
+2022-04-21 01:10:50,931 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 01:10:50,932 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 01:10:50,932 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 01:10:52,490 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 01:10:53,040 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.201 seconds (JVM running for 2865.594)
+2022-04-21 01:12:37,444 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 01:12:37,445 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 01:12:37,445 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 01:12:39,107 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 01:12:39,664 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.308 seconds (JVM running for 2972.217)
+2022-04-21 01:13:44,743 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 01:13:44,744 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 01:13:44,744 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 01:13:47,675 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 01:13:48,281 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 3.628 seconds (JVM running for 3040.835)
+2022-04-21 01:14:04,901 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 01:14:04,902 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 01:14:04,902 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 01:14:06,573 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 01:14:07,109 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.295 seconds (JVM running for 3059.663)
+2022-04-21 01:15:30,399 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 01:15:30,400 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 01:15:30,400 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 01:15:32,871 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 01:15:33,444 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 3.152 seconds (JVM running for 3145.998)
+2022-04-21 01:16:10,232 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 01:16:10,232 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 01:16:10,233 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 01:16:11,585 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 01:16:12,208 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.078 seconds (JVM running for 3184.762)
+2022-04-21 01:16:19,222 ERROR com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-2] User already exists for this username :: asfar
+2022-04-21 01:16:57,909 ERROR com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-7] User already exists for this username :: asfar
+2022-04-21 01:17:10,423 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-9] sonu user is registred successfuly. 
+2022-04-21 01:17:52,693 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 01:17:52,694 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 01:17:52,694 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 01:17:55,176 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 01:17:55,730 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 3.183 seconds (JVM running for 3288.284)
+2022-04-21 01:18:00,270 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 01:18:00,270 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 01:18:00,270 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 01:18:02,690 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 01:18:03,234 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 3.051 seconds (JVM running for 3295.788)
+2022-04-21 01:19:13,404 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8188 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 01:19:13,405 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 01:19:13,405 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 01:19:14,671 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 01:19:15,305 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 1.993 seconds (JVM running for 3367.859)
+2022-04-21 01:48:51,523 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 4944 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 01:48:51,534 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 01:48:51,535 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 01:48:57,489 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 01:48:59,737 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 8.741 seconds (JVM running for 14.882)
+2022-04-21 01:50:35,830 ERROR com.alzohar.service.security.JwtRequestFilter [http-nio-7002-exec-1] JWT Token has expired
+2022-04-21 01:53:01,667 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 4944 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 01:53:01,668 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 01:53:01,668 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 01:53:03,226 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 01:53:03,925 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.387 seconds (JVM running for 259.07)
+2022-04-21 02:10:34,262 ERROR com.alzohar.service.security.JwtRequestFilter [http-nio-7002-exec-7] JWT Token has expired
+2022-04-21 02:13:07,974 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8772 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 02:13:07,986 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 02:13:07,987 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 02:13:13,947 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 02:13:16,108 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 8.663 seconds (JVM running for 10.218)
+2022-04-21 02:16:38,303 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8772 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-21 02:16:38,304 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-21 02:16:38,304 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-21 02:16:40,292 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-21 02:16:40,973 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.797 seconds (JVM running for 215.084)
+2022-04-21 04:10:44,979 ERROR com.netflix.discovery.DiscoveryClient [DiscoveryClient-HeartbeatExecutor-0] DiscoveryClient_USER-SERVICE/DESKTOP-R5PK4T9:user-service:7002 - was unable to send heartbeat!
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:893) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1457) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[?:?]
+	at java.lang.Thread.run(Thread.java:831) ~[?:?]
+2022-04-21 04:10:52,577 ERROR com.netflix.discovery.DiscoveryClient [RMI TCP Connection(2)-127.0.0.1] DiscoveryClient_USER-SERVICE/DESKTOP-R5PK4T9:user-service:7002 - de-registration failedCannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:972) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:948) ~[eureka-client-1.10.17.jar:1.10.17]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:347) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:177) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:197) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:190) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:390) ~[spring-cloud-context-3.1.1.jar:3.1.1]
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136) ~[spring-cloud-context-3.1.1.jar:3.1.1]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:213) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1161) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1154) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1106) ~[spring-context-5.3.18.jar:5.3.18]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1075) ~[spring-context-5.3.18.jar:5.3.18]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:172) ~[spring-boot-2.6.6.jar:2.6.6]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1021) ~[spring-context-5.3.18.jar:5.3.18]
+	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown(SpringApplicationAdminMXBeanRegistrar.java:160) ~[spring-boot-2.6.6.jar:2.6.6]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:260) ~[?:?]
+	at com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:193) ~[?:?]
+	at com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:175) ~[?:?]
+	at com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:117) ~[?:?]
+	at com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:54) ~[?:?]
+	at com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(MBeanIntrospector.java:237) ~[?:?]
+	at com.sun.jmx.mbeanserver.PerInterface.invoke(PerInterface.java:138) ~[?:?]
+	at com.sun.jmx.mbeanserver.MBeanSupport.invoke(MBeanSupport.java:252) ~[?:?]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809) ~[?:?]
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801) ~[?:?]
+	at javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466) ~[?:?]
+	at javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307) ~[?:?]
+	at javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1399) ~[?:?]
+	at javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:357) ~[?:?]
+	at sun.rmi.transport.Transport$1.run(Transport.java:200) ~[?:?]
+	at sun.rmi.transport.Transport$1.run(Transport.java:197) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:691) ~[?:?]
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:196) ~[?:?]
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:587) ~[?:?]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:828) ~[?:?]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:705) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) ~[?:?]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:704) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[?:?]
+	at java.lang.Thread.run(Thread.java:831) ~[?:?]
+2022-04-22 01:14:35,813 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 5364 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-22 01:14:35,874 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-22 01:14:35,874 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-22 01:14:42,037 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-22 01:14:44,145 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 8.969 seconds (JVM running for 10.587)
+2022-04-22 01:23:10,546 ERROR com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-1] User already exists for this username :: sonu
+2022-04-22 01:27:51,291 ERROR com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-6] User already exists for this username :: sonu
+2022-04-22 01:29:58,269 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 5364 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-22 01:29:58,270 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-22 01:29:58,270 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-22 01:29:59,756 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-22 01:30:00,461 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.314 seconds (JVM running for 926.903)
+2022-04-22 01:31:02,194 ERROR com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-2] User already exists for this username :: sonu
+2022-04-22 01:31:50,769 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-1] tom user is registred successfuly. 
+2022-04-22 03:04:25,333 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 5364 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-22 03:04:25,334 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-22 03:04:25,334 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-22 03:04:27,345 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-22 03:04:28,001 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.79 seconds (JVM running for 6594.443)
+2022-04-22 03:20:00,183 ERROR com.netflix.discovery.DiscoveryClient [DiscoveryClient-HeartbeatExecutor-0] DiscoveryClient_USER-SERVICE/DESKTOP-R5PK4T9:user-service:7002 - was unable to send heartbeat!
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:893) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1457) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[?:?]
+	at java.lang.Thread.run(Thread.java:831) ~[?:?]
+2022-04-22 03:20:03,835 ERROR com.netflix.discovery.DiscoveryClient [RMI TCP Connection(2)-127.0.0.1] DiscoveryClient_USER-SERVICE/DESKTOP-R5PK4T9:user-service:7002 - de-registration failedCannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:972) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:948) ~[eureka-client-1.10.17.jar:1.10.17]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:347) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:177) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:197) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:190) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:390) ~[spring-cloud-context-3.1.1.jar:3.1.1]
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136) ~[spring-cloud-context-3.1.1.jar:3.1.1]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:213) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:587) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:559) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1161) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:520) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1154) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1106) ~[spring-context-5.3.18.jar:5.3.18]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1075) ~[spring-context-5.3.18.jar:5.3.18]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:172) ~[spring-boot-2.6.6.jar:2.6.6]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1021) ~[spring-context-5.3.18.jar:5.3.18]
+	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown(SpringApplicationAdminMXBeanRegistrar.java:160) ~[spring-boot-2.6.6.jar:2.6.6]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:260) ~[?:?]
+	at com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:193) ~[?:?]
+	at com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:175) ~[?:?]
+	at com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:117) ~[?:?]
+	at com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:54) ~[?:?]
+	at com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(MBeanIntrospector.java:237) ~[?:?]
+	at com.sun.jmx.mbeanserver.PerInterface.invoke(PerInterface.java:138) ~[?:?]
+	at com.sun.jmx.mbeanserver.MBeanSupport.invoke(MBeanSupport.java:252) ~[?:?]
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809) ~[?:?]
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801) ~[?:?]
+	at javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466) ~[?:?]
+	at javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307) ~[?:?]
+	at javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1399) ~[?:?]
+	at javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:357) ~[?:?]
+	at sun.rmi.transport.Transport$1.run(Transport.java:200) ~[?:?]
+	at sun.rmi.transport.Transport$1.run(Transport.java:197) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:691) ~[?:?]
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:196) ~[?:?]
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:587) ~[?:?]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:828) ~[?:?]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:705) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) ~[?:?]
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:704) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[?:?]
+	at java.lang.Thread.run(Thread.java:831) ~[?:?]
+2022-04-23 00:22:33,120 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 7356 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-23 00:22:33,190 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-23 00:22:33,190 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-23 00:22:39,528 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-23 00:22:41,671 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 9.271 seconds (JVM running for 11.076)
+2022-04-23 03:11:29,555 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 7356 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-23 03:11:29,556 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-23 03:11:29,556 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-23 03:11:31,597 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-23 03:11:32,488 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 3.091 seconds (JVM running for 10141.892)
+2022-04-23 03:11:37,023 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 7356 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-23 03:11:37,023 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-23 03:11:37,024 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-23 03:11:39,937 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-23 03:11:40,564 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 3.704 seconds (JVM running for 10149.969)
+2022-04-23 03:12:24,714 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 7356 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-23 03:12:24,715 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-23 03:12:24,715 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-23 03:12:26,906 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-23 03:12:27,527 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.916 seconds (JVM running for 10196.931)
+2022-04-23 03:12:58,415 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 7356 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-23 03:12:58,416 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-23 03:12:58,416 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-23 03:12:59,936 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-23 03:13:00,562 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.252 seconds (JVM running for 10229.966)
+2022-04-23 03:13:28,480 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 7356 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-23 03:13:28,480 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-23 03:13:28,481 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-23 03:13:31,261 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-23 03:13:31,899 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 3.522 seconds (JVM running for 10261.303)
+2022-04-23 03:13:47,697 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 7356 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-23 03:13:47,698 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-23 03:13:47,698 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-23 03:13:50,100 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-23 03:13:50,700 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 3.129 seconds (JVM running for 10280.104)
+2022-04-23 03:14:36,938 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 7356 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-23 03:14:36,939 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-23 03:14:36,939 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-23 03:14:39,055 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-23 03:15:04,059 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 7356 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-23 03:15:04,059 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-23 03:15:04,060 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-23 03:15:06,127 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-23 03:16:29,467 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 1016 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-23 03:16:29,479 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-23 03:16:29,480 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-23 03:16:36,796 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-23 03:16:39,010 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 10.128 seconds (JVM running for 11.758)
+2022-04-23 03:23:24,213 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 1016 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-23 03:23:24,214 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-23 03:23:24,214 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-23 03:23:26,327 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-23 03:23:27,084 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.995 seconds (JVM running for 419.833)
+2022-04-23 15:41:13,818 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 9364 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-23 15:41:13,900 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-23 15:41:13,902 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-23 15:41:20,834 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-23 15:41:22,949 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 9.75 seconds (JVM running for 11.479)
+2022-04-23 16:54:08,642 ERROR com.netflix.discovery.DiscoveryClient [DiscoveryClient-HeartbeatExecutor-0] DiscoveryClient_USER-SERVICE/DESKTOP-R5PK4T9:user-service:7002 - was unable to send heartbeat!
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:893) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1457) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[?:?]
+	at java.lang.Thread.run(Thread.java:831) ~[?:?]
+2022-04-24 00:05:11,386 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 9060 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-24 00:05:11,441 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-24 00:05:11,442 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-24 00:05:19,496 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-24 00:05:22,128 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 11.51 seconds (JVM running for 13.668)
+2022-04-24 01:08:33,197 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 9060 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-24 01:08:33,198 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-24 01:08:33,198 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-24 01:08:34,758 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-24 01:08:35,493 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.432 seconds (JVM running for 3807.034)
+2022-04-24 01:08:46,020 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 9060 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-24 01:08:46,021 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-24 01:08:46,021 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-24 01:08:49,632 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-24 01:08:50,446 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 4.558 seconds (JVM running for 3821.986)
+2022-04-24 01:11:08,932 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 9060 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-24 01:11:08,933 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-24 01:11:08,933 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-24 01:11:10,835 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-24 01:11:11,466 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.637 seconds (JVM running for 3963.005)
+2022-04-24 01:11:51,541 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 9060 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-24 01:11:51,541 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-24 01:11:51,542 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-24 01:11:54,114 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-24 01:11:54,826 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 3.391 seconds (JVM running for 4006.366)
+2022-04-24 01:17:06,127 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 9060 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-24 01:17:06,127 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-24 01:17:06,128 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-24 01:17:08,011 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-24 01:17:20,930 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 9060 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-24 01:17:20,930 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-24 01:17:20,931 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-24 01:17:23,315 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-24 01:17:23,967 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 3.152 seconds (JVM running for 4335.506)
+2022-04-24 01:20:19,907 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8884 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-24 01:20:19,919 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-24 01:20:19,920 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-24 01:20:25,545 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-24 01:23:01,719 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8620 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-24 01:23:01,733 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-24 01:23:01,734 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-24 01:23:07,795 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-24 01:23:09,963 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 8.797 seconds (JVM running for 10.402)
+2022-04-24 01:27:04,584 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8620 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-24 01:27:04,584 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-24 01:27:04,585 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-24 01:27:06,499 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-24 01:27:07,147 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.693 seconds (JVM running for 247.586)
+2022-04-24 01:29:53,386 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8620 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-24 01:29:53,387 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-24 01:29:53,387 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-24 01:29:55,287 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-24 01:29:55,903 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.627 seconds (JVM running for 416.343)
+2022-04-24 23:58:49,939 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 10340 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-24 23:58:49,954 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-24 23:58:49,955 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-24 23:58:55,859 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-24 23:58:58,085 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 8.712 seconds (JVM running for 10.511)
+2022-04-25 01:07:32,275 ERROR com.alzohar.service.security.JwtRequestFilter [http-nio-7002-exec-4] JWT Token has expired
+2022-04-25 01:36:02,341 ERROR com.alzohar.service.security.JwtRequestFilter [http-nio-7002-exec-7] JWT Token has expired
+2022-04-25 01:36:25,329 INFO com.alzohar.service.controller.UserController [http-nio-7002-exec-9] Get users list is successfull
+2022-04-25 02:01:41,076 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-8] jimmy user is registred successfuly. 
+2022-04-25 02:01:55,202 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-6] jack user is registred successfuly. 
+2022-04-25 02:02:08,190 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-1] aria user is registred successfuly. 
+2022-04-25 02:02:18,253 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-2] khan user is registred successfuly. 
+2022-04-25 02:02:39,938 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-3] lorem user is registred successfuly. 
+2022-04-25 02:02:52,026 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-4] tommy user is registred successfuly. 
+2022-04-25 02:03:01,698 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-5] happy user is registred successfuly. 
+2022-04-25 02:03:17,384 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-7] stark user is registred successfuly. 
+2022-04-25 02:03:26,805 ERROR com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-9] User already exists for this username :: sonu
+2022-04-25 02:03:36,219 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-10] sunny user is registred successfuly. 
+2022-04-25 02:03:49,982 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-8] sun user is registred successfuly. 
+2022-04-25 02:03:56,600 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-6] moon user is registred successfuly. 
+2022-04-25 02:04:08,479 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-1] venus user is registred successfuly. 
+2022-04-25 02:04:17,231 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-2] jupiter user is registred successfuly. 
+2022-04-25 02:04:36,553 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-3] lucy user is registred successfuly. 
+2022-04-25 02:04:46,879 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-4] jaksy user is registred successfuly. 
+2022-04-25 02:04:55,942 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-5] harry user is registred successfuly. 
+2022-04-25 02:05:08,404 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-7] hema user is registred successfuly. 
+2022-04-25 02:05:17,009 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-9] horse user is registred successfuly. 
+2022-04-25 02:05:23,587 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-10] ant user is registred successfuly. 
+2022-04-25 02:05:33,150 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-8] poll user is registred successfuly. 
+2022-04-25 02:05:39,133 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-6] thor user is registred successfuly. 
+2022-04-25 02:05:52,348 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-1] shah user is registred successfuly. 
+2022-04-25 02:06:08,491 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-2] lucky user is registred successfuly. 
+2022-04-25 02:06:16,559 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-3] bunty user is registred successfuly. 
+2022-04-25 02:06:27,551 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-4] babu user is registred successfuly. 
+2022-04-25 02:06:46,055 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-5] rancho user is registred successfuly. 
+2022-04-25 02:06:56,768 INFO com.alzohar.service.impl.UserServiceImpl [http-nio-7002-exec-7] sufi user is registred successfuly. 
+2022-04-25 02:07:25,450 ERROR com.alzohar.service.security.JwtRequestFilter [http-nio-7002-exec-9] JWT Token has expired
+2022-04-25 02:07:56,923 ERROR com.alzohar.service.security.JwtRequestFilter [http-nio-7002-exec-10] JWT Token has expired
+2022-04-25 02:08:27,770 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 10340 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-25 02:08:27,771 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-25 02:08:27,771 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-25 02:08:29,421 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-25 02:08:30,286 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 2.659 seconds (JVM running for 7782.713)
+2022-04-25 02:11:02,309 ERROR com.netflix.discovery.DiscoveryClient [DiscoveryClient-HeartbeatExecutor-0] DiscoveryClient_USER-SERVICE/DESKTOP-R5PK4T9:user-service:7002 - was unable to send heartbeat!
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient.renew(DiscoveryClient.java:893) ~[eureka-client-1.10.17.jar:1.10.17]
+	at com.netflix.discovery.DiscoveryClient$HeartbeatThread.run(DiscoveryClient.java:1457) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[?:?]
+	at java.lang.Thread.run(Thread.java:831) ~[?:?]
+2022-04-25 19:49:01,944 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 7632 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-25 19:49:02,017 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-25 19:49:02,019 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-25 19:49:08,087 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-25 19:49:10,283 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 8.902 seconds (JVM running for 10.573)
+2022-04-25 19:51:40,818 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 2460 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-25 19:51:40,830 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-25 19:51:40,831 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-25 19:51:47,027 DEBUG com.alzohar.service.security.JwtRequestFilter [restartedMain] Filter 'jwtRequestFilter' configured for use
+2022-04-25 19:51:49,318 INFO com.alzohar.service.UserServiceApplication [restartedMain] Started UserServiceApplication in 9.07 seconds (JVM running for 10.717)
+2022-04-25 20:17:43,335 ERROR com.alzohar.service.security.JwtRequestFilter [http-nio-7002-exec-3] JWT Token has expired
+2022-04-25 20:17:58,590 ERROR com.alzohar.service.security.JwtRequestFilter [http-nio-7002-exec-4] JWT Token has expired
+2022-04-25 20:20:49,176 INFO com.alzohar.service.controller.UserController [http-nio-7002-exec-7] Get users list is successfull
+2022-04-26 00:11:41,930 INFO com.alzohar.service.UserServiceApplication [restartedMain] Starting UserServiceApplication using Java 16.0.2 on DESKTOP-R5PK4T9 with PID 8584 (F:\Reporting-Module-Workspace\user-service\target\classes started by Mr. Khan in F:\Reporting-Module-Workspace\user-service)
+2022-04-26 00:11:41,941 DEBUG com.alzohar.service.UserServiceApplication [restartedMain] Running with Spring Boot v2.6.6, Spring v5.3.18
+2022-04-26 00:11:41,942 INFO com.alzohar.service.UserServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"

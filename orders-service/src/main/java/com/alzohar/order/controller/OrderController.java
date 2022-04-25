@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
@@ -28,6 +29,7 @@ import com.alzohar.order.exception.OrderNotFound;
 import com.alzohar.order.exporter.OrderExcelExporter;
 import com.alzohar.order.exporter.OrderPDFExporter;
 import com.alzohar.order.repository.OrderRepository;
+import com.alzohar.order.service.ExportService;
 import com.alzohar.order.service.OrderService;
 import com.lowagie.text.DocumentException;
 
@@ -39,6 +41,9 @@ public class OrderController {
 
 	@Autowired
 	OrderService orderService;
+
+	@Autowired
+	ExportService expservice;
 
 	@GetMapping("/orders")
 	public List<Order> getAllOrders() {
@@ -58,67 +63,15 @@ public class OrderController {
 		return order;
 	}
 
-//	Get Mapping for excel file download
-	@GetMapping("/orders/exp/excel")
-	public void exportToExcel(HttpServletResponse response) throws IOException {
-		response.setContentType("application/vnd.ms-excel");
-		DateFormat dateFormatter = new SimpleDateFormat("dd-mm-yyyy_HH:mm:ss");
-		String currentDateTime = dateFormatter.format(new Date());
-
-		String headerKey = "Content-Disposition";
-		String headerValue = "attachment; filename=orders.xlsx";
-		response.setHeader(headerKey, headerValue);
-
-		List<Order> listOrder = orderService.listAll();
-		OrderExcelExporter excelExporter = new OrderExcelExporter(listOrder);
-		excelExporter.export(response);
-	}
-
-//	Get Mapping for CSV file download
-	@GetMapping("orders/exp/csv")
-	public void exportToCSV(HttpServletResponse response) throws IOException {
-		response.setContentType("text/csv");
-		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-		String currentDateTime = dateFormatter.format(new Date());
-
-		String headerKey = "Content-Disposition";
-		String headerValue = "attachment; filename=orders_" + currentDateTime + ".csv";
-		response.setHeader(headerKey, headerValue);
-
-		List<Order> listOrder = orderService.listAll();
-
-		ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
-		String[] csvHeader = { "Order_Id", "Order_Name", "Order_Price", "Order_Quantity", "Order_Total",
-				"Order_Order_Date" };
-		String[] nameMapping = { "id", "name", "price", "quantity", "total", "orderDate" };
-
-		csvWriter.writeHeader(csvHeader);
-
-		for (Order order : listOrder) {
-			csvWriter.write(order, nameMapping);
+	@GetMapping("/export")
+	public void export(HttpServletResponse response, @RequestParam("export") String export) {
+		if (export.equalsIgnoreCase("excel")) {
+			expservice.exportToExcel(response);
+		} else if (export.equalsIgnoreCase("csv")) {
+			expservice.exportToCSV(response);
+		} else if (export.equalsIgnoreCase("pdf")) {
+			expservice.exportToPDF(response);
 		}
-
-		csvWriter.close();
-	}
-
-//	Get Mapping for PDF file download
-
-	@GetMapping("/orders/exp/pdf")
-	public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException {
-		response.setContentType("application/pdf");
-		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-		String currentDateTime = dateFormatter.format(new Date());
-
-		Date date = new Date();
-
-		String headerKey = "Content-Disposition";
-		String headerValue = "inline; filename=orders" + currentDateTime + ".pdf";
-		response.setHeader("Content-Disposition", "attachment ;filename=orders_" + date + ".pdf");
-
-		List<Order> listOrder = orderService.listAll();
-
-		OrderPDFExporter exporter = new OrderPDFExporter(listOrder);
-		exporter.export(response);
 	}
 
 	@PostMapping("/orders")
