@@ -41,6 +41,8 @@ public class UserExcelExporter {
 		createCell(row, 1, "username", style);
 		createCell(row, 2, "password", style);
 		createCell(row, 3, "enabled", style);
+		createCell(row, 4, "role_id", style);
+		createCell(row, 5, "name", style);
 	}
 
 	private void createCell(Row row, int columnCount, Object value, CellStyle style) {
@@ -52,6 +54,8 @@ public class UserExcelExporter {
 			cell.setCellValue((String) value);
 		} else if (value instanceof Boolean) {
 			cell.setCellValue((Boolean) value);
+		} else if (value instanceof Object) {
+			cell.setCellValue((double) value);
 		}
 		cell.setCellStyle(style);
 	}
@@ -72,6 +76,7 @@ public class UserExcelExporter {
 			createCell(row, columnCount++, user.getUsername(), style);
 			createCell(row, columnCount++, user.getPassword(), style);
 			createCell(row, columnCount++, user.isEnabled(), style);
+			createCell(row, columnCount++, user.getRoles(), style);
 		}
 	}
 
